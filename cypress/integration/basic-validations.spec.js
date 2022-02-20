@@ -1,16 +1,16 @@
+const { selectors } = require("../support/resources/selectors")
+
 describe('Basic Giphy Validations', () => {
 
     before(() => {
-        cy.visit('https://giphy.com/')
+        cy.visit(Cypress.env('baseUrl'))
     })
 
 
     it("validates that its on the correct website", () => {
 
         // Get location and validate its giphy.com
-        cy.location().should((loc) => {
-            expect(loc.toString()).to.eq("https://giphy.com/")
-        })
+        cy.location('origin').should('eq', Cypress.env('baseUrl'))
 
     })
 
@@ -19,9 +19,9 @@ describe('Basic Giphy Validations', () => {
         const search_query = 'black'
 
         //type a search query and type Enter key
-        cy.get(".Input-sc-w75cdz").type(search_query).type("{enter}")
-        cy.get(".Title-sc-1nnws5s").should('include.text', search_query)
-        cy.get(".Title-sc-1nnws5s > span").then(($count) => {
+        cy.get(selectors.home.searchInput).type(search_query).type("{enter}")
+        cy.get(selectors.home.searchQueryHeading).should('include.text', search_query)
+        cy.get(selectors.home.headingCount).then(($count) => {
             let count = $count.attr("data-gif-count")
             // Remove comma
             count = parseFloat(count.replace(/,/g,''))
@@ -29,11 +29,11 @@ describe('Basic Giphy Validations', () => {
             expect(count).to.be.at.least(1)
             
         })
-        cy.get('.giphy-gif').should('be.visible')
+        cy.get(selectors.home.listGif).should('be.visible')
     })
     
     it("should upload a file successfully", () => {
-        
+        cy.get(selectors.home.uploadBtn)
     })
 
 })
