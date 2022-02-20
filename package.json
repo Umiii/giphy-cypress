@@ -1,0 +1,27 @@
+{
+  "name": "giphy-cypress",
+  "version": "1.0.0",
+  "description": "automation test in Cypress on giphy.com",
+  "main": "cypress/",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Umiii/giphy-cypress.git"
+  },
+  "keywords": [
+    "cypress",
+    "automation-test"
+  ],
+  "author": "Umi Ikem",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Umiii/giphy-cypress/issues"
+  },
+  "homepage": "https://github.com/Umiii/giphy-cypress#readme",
+  "devDependencies": {
+    "cypress": "^9.5.0",
+    "cypress-mochawesome-reporter": "^2.3.0"
+  }
+}
