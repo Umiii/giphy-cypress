@@ -1,6 +1,14 @@
 {
-    "reporter": "cypress-mochawesome-reporter",
     "env": {
         "baseUrl": "https://giphy.com"
-     }
+     },
+    "reporter": "cypress-mochawesome-reporter",
+    "reporterOptions": {
+        "reportDir": "cypress/reports",
+        "charts": true,
+        "reportPageTitle": "Giphy Test Suite",
+        "embeddedScreenshots": true,
+        "inlineAssets": true
+    },
+    "video": false
 }
