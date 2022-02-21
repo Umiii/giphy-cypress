@@ -42,7 +42,6 @@ describe('Basic Giphy Validations', () => {
         cy.get(selectors.homePage.uploadBtn).click()
         cy.get(selectors.uploadPage.inputFile).selectFile('cypress\\fixtures\\rand.gif')
         cy.get(selectors.uploadPage.downloadBtn).eq(0).click().then(($download_btn) => {
-            cy.location('pathname').should('include', 'stickers/transparent')
             cy.get(selectors.uploadPage.uploadSuccessMessage).should('exist')
         })
        
