@@ -1,0 +1,148 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2022-02-20T21:03:48.346Z",
+    "end": "2022-02-20T21:03:49.738Z",
+    "duration": 1392,
+    "testsRegistered": 3,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 2,
+    "hasSkipped": true
+  },
+  "results": [
+    {
+      "uuid": "09fcbda5-8078-418e-be62-871d813d789f",
+      "title": "",
+      "fullFile": "cypress/integration/basic-validations.spec.js",
+      "file": "cypress/integration/basic-validations.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "3710f5af-981f-4f87-8df8-a88fe3a70faa",
+          "title": "Basic Giphy Validations",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "validates that its on the correct website",
+              "fullTitle": "Basic Giphy Validations validates that its on the correct website",
+              "timedOut": null,
+              "duration": 954,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "// Get location and validate its giphy.com\ncy.location().should(loc => {\n  expect(loc.toString()).to.eq(Cypress.env('baseUrl'));\n});",
+              "err": {
+                "message": "CypressError: `cy.visit()` failed trying to load:\n\n/\n\nWe failed looking for this file at the path:\n\n/Users/HP/practice-projects/giphy-cypress/\n\nThe internal Cypress web server responded with:\n\n  > 404: Not Found\n\nBecause this error occurred during a `before all` hook we are skipping the remaining tests in the current suite: `Basic Giphy Validations`",
+                "estack": "CypressError: `cy.visit()` failed trying to load:\n\n/\n\nWe failed looking for this file at the path:\n\n/Users/HP/practice-projects/giphy-cypress/\n\nThe internal Cypress web server responded with:\n\n  > 404: Not Found\n\nBecause this error occurred during a `before all` hook we are skipping the remaining tests in the current suite: `Basic Giphy Validations`\n    at http://localhost:60155/__cypress/runner/cypress_runner.js:159236:84\n    at visitFailedByErr (http://localhost:60155/__cypress/runner/cypress_runner.js:158602:12)\n    at http://localhost:60155/__cypress/runner/cypress_runner.js:159216:13\n    at tryCatcher (http://localhost:60155/__cypress/runner/cypress_runner.js:13022:23)\n    at Promise._settlePromiseFromHandler (http://localhost:60155/__cypress/runner/cypress_runner.js:10957:31)\n    at Promise._settlePromise (http://localhost:60155/__cypress/runner/cypress_runner.js:11014:18)\n    at Promise._settlePromise0 (http://localhost:60155/__cypress/runner/cypress_runner.js:11059:10)\n    at Promise._settlePromises (http://localhost:60155/__cypress/runner/cypress_runner.js:11135:18)\n    at _drainQueueStep (http://localhost:60155/__cypress/runner/cypress_runner.js:7729:12)\n    at _drainQueue (http://localhost:60155/__cypress/runner/cypress_runner.js:7722:9)\n    at Async.../../node_modules/bluebird/js/release/async.js.Async._drainQueues (http://localhost:60155/__cypress/runner/cypress_runner.js:7738:5)\n    at Async.drainQueues (http://localhost:60155/__cypress/runner/cypress_runner.js:7608:14)\nFrom Your Spec Code:\n    at Context.eval (http://localhost:60155/__cypress/tests?p=cypress\\integration\\basic-validations.spec.js:101:8)",
+                "diff": null
+              },
+              "uuid": "5e986a2e-b0ab-43ff-8bbb-889bf64a76e0",
+              "parentUUID": "3710f5af-981f-4f87-8df8-a88fe3a70faa",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "validates that search returns valid results",
+              "fullTitle": "Basic Giphy Validations validates that search returns valid results",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const search_query = 'black'; //type a search query and type Enter key\ncy.get(\".Input-sc-w75cdz\").type(search_query).type(\"{enter}\");\ncy.get(\".Title-sc-1nnws5s\").should('include.text', search_query);\ncy.get(\".Title-sc-1nnws5s > span\").then($count => {\n  let count = $count.attr(\"data-gif-count\"); // Remove comma\n  count = parseFloat(count.replace(/,/g, ''));\n  expect(count).to.be.at.least(1);\n});\ncy.get('.giphy-gif').should('be.visible');",
+              "err": {},
+              "uuid": "410f8807-9094-4808-82dc-ddfeda9c20fd",
+              "parentUUID": "3710f5af-981f-4f87-8df8-a88fe3a70faa",
+              "isHook": false,
+              "skipped": true
+            },
+            {
+              "title": "should upload a file successfully",
+              "fullTitle": "Basic Giphy Validations should upload a file successfully",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "",
+              "err": {},
+              "uuid": "dbea4997-e653-4474-a167-7808ecd7733a",
+              "parentUUID": "3710f5af-981f-4f87-8df8-a88fe3a70faa",
+              "isHook": false,
+              "skipped": true
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "5e986a2e-b0ab-43ff-8bbb-889bf64a76e0"
+          ],
+          "pending": [],
+          "skipped": [
+            "410f8807-9094-4808-82dc-ddfeda9c20fd",
+            "dbea4997-e653-4474-a167-7808ecd7733a"
+          ],
+          "duration": 954,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.3.1"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "5.2.0"
+    }
+  }
+}
